@@ -1,0 +1,5 @@
+./artisan route:list
+./artisan make:controller <controller name> --resource
+./artisan passport:key
+./artisan make:rule
+./artisan make:request
