@@ -1,17 +1,19 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
+use App\Enums\Status;
 
-class User extends FormRequest
+class UserStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,11 +24,11 @@ class User extends FormRequest
     public function rules(): array
     {
         return [
-            'user'=> 'required',
-            'email'=> 'required|email', 
-            'password'=> 'required', 
-            'phone'=> 'required',
-            'status' => 'required',
+            'name'=>'required',
+            'phone'=>'numeric',
+            'password'=>'required',
+            'email'=>'required|email|unique:users',
+            'status'=>['required', new Enum(Status::class)]
         ];
     }
 }

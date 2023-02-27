@@ -24,5 +24,9 @@ use \App\Http\Controllers\API\User;
 route::group(['prefix'=>'user'], function (){
     route::get('/',[User::class , 'index']); 
     route::get('{id}',[User::class , 'show']); 
+    route::post('create',[User::class , 'create']); 
+    route::get('{id}/edit',[User::class , 'edit']); 
     route::post('new',[User::class , 'store']); 
+    route::delete('{id}',[User::class , 'destroy']); 
+    route::put('{id}',[User::class , 'update']); 
 }); 
