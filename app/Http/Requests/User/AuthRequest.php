@@ -3,11 +3,8 @@
 namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Enum;
-use App\Enums\Status;
-use App\Enums\Types;
 
-class UserStoreRequest extends FormRequest
+class AuthRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +22,8 @@ class UserStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required',
-            'phone'=>'numeric',
-            'password'=>'required',
-            'email'=>'required|email|unique:users',
-            'type'=>['required', new Enum(Types::class)],
-            'status'=>['required', new Enum(Status::class)]
+            'email' => 'required|email', 
+            'password' => 'required'
         ];
     }
 }

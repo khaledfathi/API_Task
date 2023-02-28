@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Enums\Status;
-use App\Enums;
+use App\Enums\Types;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Rules\UniqueOnChange;
 use Illuminate\Http\Request; 
 use App\Models\User as UserModel;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Enum;
 
 class User extends Controller
@@ -18,7 +19,11 @@ class User extends Controller
      */
     public function index()
     {
-        return response()->json(UserModel::all()); 
+        $found = UserModel::all();
+        if ($found->count()){
+            return response()->json(['message'=>'users found', 'status'=>200 ,'user_count'=>$found->count(), 'users'=>$found]); 
+        }
+        return response()->json(['message'=>'there is no user registered yet!' , 'status'=>200]); 
     }
 
     /**
@@ -31,6 +36,7 @@ class User extends Controller
             'phone',
             'password', 
             'email', 
+            'type',
             'status'
         ]]);  
     }
@@ -40,14 +46,15 @@ class User extends Controller
      */
     public function store(UserStoreRequest $request)
     {  
-        UserModel::create([
+        $record = UserModel::create([
             'name'=>$request->name,
             'phone'=>$request->phone,
-            'password'=>$request->password,
+            'password'=>Hash::make($request->password),
             'email'=>$request->email,
+            'type'=>$request->type,
             'status'=>$request->status
         ]);
-        return response()->json(['message'=>'stored', 'status'=>200]);  
+        return response()->json(['message'=>'stored', 'record_id'=>$record->id,'status'=>200]);  
     }
 
     /**
@@ -55,7 +62,11 @@ class User extends Controller
      */
     public function show(string $id)
     {
-        return response()->json(UserModel::where('id',$id)->get()); 
+        $found =UserModel::where('id',$id)->get() ;
+        if ($found->count()){
+            return response()->json(['message'=>"user found" , 'status'=>200 , 'user'=>$found ]); 
+        }
+        return response()->json(['message'=>"user ID : '$id' does not exist!" , 'status'=>200 , 'user'=>$found ]); 
     }
 
     /**
@@ -63,8 +74,8 @@ class User extends Controller
      */
     public function edit(string $id)
     {
-        $rowToEdit = UserModel::where('id', $id)->select('name','email','password','phone','status')->first();
-        return response()->json(['message'=>'stored', 'status'=>200 , 'form'=>$rowToEdit , 'hidden'=>['password'=>'xxxxxxxxxx'] ]);  
+        $rowToEdit = UserModel::where('id', $id)->select('name','email','password','phone','type','status')->first();
+        return response()->json(['message'=>'user edit form', 'status'=>200 , 'form'=>$rowToEdit , 'hidden'=>['password'=>'xxxxxxxxxx'] ]);  
     }
 
     /**
@@ -77,15 +88,17 @@ class User extends Controller
             $request->validate([
                 'name'=>['required'],
                 'email'=>['required', new UniqueOnChange('users',$id)],
-                'password'=>['required', new UniqueOnChange('users',$id)],
+                'password'=>'required',
                 'phone'=>'numeric',
+                'type'=>['required', new Enum(Types::class)],
                 'status'=>['required', new Enum(Status::class)],
             ]);
             $found->update([
                 'name'=>$request->name,
                 'phone'=>$request->phone,
-                'password'=>$request->password,
+                'password'=>Hash::make($request->password),
                 'email'=>$request->email,
+                'type'=>$request->type,
                 'status'=>$request->status
             ]);
             return response()->json(['status'=>200, 'update'=>true , 'message'=> 'User has been updated successfully']); 

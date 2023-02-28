@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('title')->nullable(false); 
             $table->string('description')->nullable(true); 
             $table->date('start_date')->nullable(false); 
-            $table->date('end')->nullable(false); 
+            $table->date('end_date')->nullable(false); 
+            $table->date('assign_at')->nullable(false); 
             $table->enum('status',['new','in_progress','completed' , 'rejected', 'succeess'])->nullable(false); 
             $table->enum('priority',['low','medium', 'high'])->nullable(false);
             //FK
