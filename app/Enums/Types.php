@@ -1,7 +1,7 @@
 <?php
 namespace App\Enums; 
 
-enum Status : string 
+enum Types : string 
  {
     case super_admin = 'super_admin'; 
     case admin = 'admin'; 

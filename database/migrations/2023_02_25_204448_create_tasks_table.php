@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('start_date')->nullable(false); 
             $table->date('end_date')->nullable(false); 
             $table->date('assign_at')->nullable(false); 
-            $table->enum('status',['new','in_progress','completed' , 'rejected', 'succeess'])->nullable(false); 
+            $table->enum('status',['new','in_progress','completed' , 'rejected', 'success'])->nullable(false); 
             $table->enum('priority',['low','medium', 'high'])->nullable(false);
             //FK
             $table->foreignId('creator_id')->nullable(true)->default(null)->references('id')->on('users')->onDelete('set null'); 

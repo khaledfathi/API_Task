@@ -81,9 +81,10 @@
                 </tbody>
             @endforeach
         </table>
-    </div>
+    </div><br>
+    <hr><br>
 
-      <label for="">categories</label>
+      <label for="">Tasks</label>
     <div class="table_block">
         <table>
             <thead>

@@ -2,12 +2,16 @@
 
 namespace App\Providers;
 
+use App\Repository\CategoryRepo;
+use App\Repository\TaskRepo;
+use App\Repository\Contracts\CategoryRepoContract;
+use App\Repository\Contracts\TaskRepoContract;
 use Illuminate\Support\ServiceProvider;
 use App\Repository\Contracts\UserRepoContract; 
 use App\Repository\UserRepo;  
 
 
-class UserProvider extends ServiceProvider
+class RepoServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -15,6 +19,8 @@ class UserProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(UserRepoContract::class , UserRepo::class); 
+        $this->app->bind(CategoryRepoContract::class , CategoryRepo::class); 
+        $this->app->bind(TaskRepoContract::class , TaskRepo::class); 
     }
 
     /**

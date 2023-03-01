@@ -7,7 +7,7 @@ use App\Http\Requests\User\AuthRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserAuth extends Controller
+class UserAuthController extends Controller
 {
     public function Login(AuthRequest $request){
         if (Auth::attempt(['email'=>$request->email , 'password'=>$request->password])){

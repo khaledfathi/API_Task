@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use App\Models\User as UserModel;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Enum;
+use App\Enums\Status; 
+use App\Enums\Types; 
+
 
 class UserRepo implements UserRepoContract{
      /**
@@ -15,11 +18,7 @@ class UserRepo implements UserRepoContract{
      */
     public function index()
     {
-        $found = UserModel::all();
-        if ($found->count()){
-            return ['message'=>'users found', 'status'=>200 ,'user_count'=>$found->count(), 'users'=>$found]; 
-        }
-        return ['message'=>'there is no user registered yet!' , 'status'=>200]; 
+        return  UserModel::all();
     }
 
     /**
@@ -27,14 +26,14 @@ class UserRepo implements UserRepoContract{
      */
     public function create()
     {
-        return ['message'=>'create form', 'status'=>200 ,'form'=>[
+        return [ 
             'name',
             'phone',
             'password', 
             'email', 
             'type',
             'status'
-        ]];  
+        ];  
     }
 
     /**
@@ -42,7 +41,7 @@ class UserRepo implements UserRepoContract{
      */
     public function store(UserStoreRequest $request)
     {  
-        $record = UserModel::create([
+        return UserModel::create([
             'name'=>$request->name,
             'phone'=>$request->phone,
             'password'=>Hash::make($request->password),
@@ -50,7 +49,6 @@ class UserRepo implements UserRepoContract{
             'type'=>$request->type,
             'status'=>$request->status
         ]);
-        return ['message'=>'stored', 'record_id'=>$record->id,'status'=>200];  
     }
 
     /**
@@ -58,11 +56,7 @@ class UserRepo implements UserRepoContract{
      */
     public function show(string $id)
     {
-        $found =UserModel::where('id',$id)->get() ;
-        if ($found->count()){
-            return ['message'=>"user found" , 'status'=>200 , 'user'=>$found ];
-        }
-        return ['message'=>"user ID : '$id' does not exist!" , 'status'=>200 , 'user'=>$found ]; 
+        return UserModel::where('id',$id)->get() ;
     }
 
     /**
@@ -70,8 +64,7 @@ class UserRepo implements UserRepoContract{
      */
     public function edit(string $id)
     {
-        $rowToEdit = UserModel::where('id', $id)->select('name','email','password','phone','type','status')->first();
-        return ['message'=>'user edit form', 'status'=>200 , 'form'=>$rowToEdit , 'hidden'=>['password'=>'xxxxxxxxxx'] ];  
+        return UserModel::where('id', $id)->select('name','email','password','phone','type','status')->first();
     }
 
     /**
@@ -97,9 +90,9 @@ class UserRepo implements UserRepoContract{
                 'type'=>$request->type,
                 'status'=>$request->status
             ]);
-            return ['status'=>200, 'update'=>true , 'message'=> 'User has been updated successfully']; 
+            return true; 
         }
-        return ['status'=>200, 'update'=>false , 'message'=> 'User does not exist!']; 
+        return false;  
     }
 
     /**
@@ -110,8 +103,8 @@ class UserRepo implements UserRepoContract{
         $found = UserModel::find($id);
         if($found){
             $found->delete();
-            return ["status"=>200 , "delete"=>true ,'message'=>'User has been deleted Successfully']; 
+            return true ;  
         }
-        return ["status"=>200 , "delete"=>false,'message'=> 'User dose not exist!']; 
+        return false ;  
     }
 } 

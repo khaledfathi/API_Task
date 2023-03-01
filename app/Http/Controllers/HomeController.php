@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class Home extends Controller
+class HomeController extends Controller
 {
     public function HomePage(){
         $tables=[ 

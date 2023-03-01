@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\API\UserAuth;
+use App\Http\Controllers\API\TaskController;
+use App\Http\Controllers\API\UserAuthController;
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\CategoryController;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\API\User;
-use App\Http\Controllers\API\Category;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,28 +21,38 @@ use App\Http\Controllers\API\Category;
 // });
 
 
-route::post('login' , [UserAuth::class , 'Login']);
+route::post('login' , [UserAuthController::class , 'Login']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     //users
     route::group(['prefix'=>'user'], function (){
-        route::get('/',[User::class , 'index']); 
-        route::get('{id}',[User::class , 'show']); 
-        route::post('create',[User::class , 'create']); 
-        route::get('{id}/edit',[User::class , 'edit']); 
-        route::post('new',[User::class , 'store']); 
-        route::delete('{id}',[User::class , 'destroy']); 
-        route::put('{id}',[User::class , 'update']); 
+        route::get('/',[UserController::class , 'index']); 
+        route::get('{id}',[UserController::class , 'show']); 
+        route::post('create',[UserController::class , 'create']); 
+        route::get('{id}/edit',[UserController::class , 'edit']); 
+        route::post('store',[UserController::class , 'store']); 
+        route::delete('{id}',[UserController::class , 'destroy']); 
+        route::put('{id}',[UserController::class , 'update']); 
     }); 
     //categories
     route::group(['prefix'=>'category'], function (){
-        route::get('/',[Category::class , 'index']); 
-        route::get('{id}',[Category::class , 'show']); 
-        route::post('create',[Category::class , 'create']); 
-        route::get('{id}/edit',[Category::class , 'edit']); 
-        route::post('new',[Category::class , 'store']); 
-        route::delete('{id}',[Category::class , 'destroy']); 
-        route::put('{id}',[Category::class , 'update']); 
+        route::get('/',[CategoryController::class , 'index']); 
+        route::get('{id}',[CategoryController::class , 'show']); 
+        route::post('create',[CategoryController::class , 'create']); 
+        route::get('{id}/edit',[CategoryController::class , 'edit']); 
+        route::post('store',[CategoryController::class , 'store']); 
+        route::delete('{id}',[CategoryController::class , 'destroy']); 
+        route::put('{id}',[CategoryController::class , 'update']); 
+    });
+    //tasks
+    route::group(['prefix'=>'task'], function (){
+        route::get('/',[TaskController::class , 'index']); 
+        route::get('{id}',[TaskController::class , 'show']); 
+        route::post('create',[TaskController::class , 'create']); 
+        route::get('{id}/edit',[TaskController::class , 'edit']); 
+        route::post('store',[TaskController::class , 'store']); 
+        route::delete('{id}',[TaskController::class , 'destroy']); 
+        route::put('{id}',[TaskController::class , 'update']); 
     }); 
 });
 

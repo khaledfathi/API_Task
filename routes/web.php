@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Home;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-route::get('/',[Home::class , 'HomePage']); 
-route::get('diagrams',[Home::class , 'DiagramsPage']); 
+route::get('/',[HomeController::class , 'HomePage']); 
+route::get('diagrams',[HomeController::class , 'DiagramsPage']); 

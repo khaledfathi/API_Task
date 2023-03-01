@@ -2,8 +2,8 @@
 
 namespace App\Repository\Contracts;
 
-use Illuminate\Http\Request; 
 use App\Http\Requests\User\UserStoreRequest;
+use Illuminate\Http\Request; 
 
 interface UserRepoContract{
     public function index(); 
