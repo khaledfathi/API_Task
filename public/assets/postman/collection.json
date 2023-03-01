@@ -9,7 +9,7 @@
 			"name": "Users",
 			"item": [
 				{
-					"name": "get all users",
+					"name": "index",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -23,7 +23,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|7W5vojUGsFvuqiM5RPRmWbZ89BHZ2s4xgGfJLUJb",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
 								"type": "default"
 							}
 						],
@@ -58,7 +58,7 @@
 					"response": []
 				},
 				{
-					"name": "get user by id",
+					"name": "show",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -71,10 +71,9 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
@@ -87,14 +86,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/user/5",
+							"raw": "localhost/api/user/1",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"user",
-								"5"
+								"1"
 							],
 							"query": [
 								{
@@ -108,7 +107,7 @@
 					"response": []
 				},
 				{
-					"name": "create user form",
+					"name": "create",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -118,15 +117,14 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"ahmed\",\n    \"email\": \"ahmed21@googleea.com\",\n    \"password\":\"1231322312\",\n    \"phone\": \"01002049971\",\n    \"status\":\"active\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -142,20 +140,13 @@
 								"api",
 								"user",
 								"create"
-							],
-							"query": [
-								{
-									"key": "accept",
-									"value": "",
-									"disabled": true
-								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "store new user",
+					"name": "store",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -165,15 +156,14 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"ahmed\",\n    \"email\": \"ahme51d21@googleea.com\",\n    \"password\":\"1231322312\",\n    \"phone\": \"01002049971\",\n    \"status\":\"active\"\n}",
+							"raw": "{\n   \"name\": \"ahmed\",\n    \"email\": \"ahme25431d46341@googl42eea.com\",\n    \"password\":\"1231322312\",\n    \"phone\": \"01002049971\",\n    \"type\":\"super_admin\",\n    \"status\":\"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -181,14 +171,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/user/new",
+							"raw": "localhost/api/user/store",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"user",
-								"new"
+								"store"
 							],
 							"query": [
 								{
@@ -202,7 +192,7 @@
 					"response": []
 				},
 				{
-					"name": "delete user by id",
+					"name": "destroy",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -212,10 +202,9 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
@@ -228,14 +217,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/user/19",
+							"raw": "localhost/api/user/3",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"user",
-								"19"
+								"3"
 							],
 							"query": [
 								{
@@ -249,7 +238,7 @@
 					"response": []
 				},
 				{
-					"name": "get user edit form by id",
+					"name": "edit",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -262,10 +251,9 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
@@ -278,14 +266,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/user/6/edit",
+							"raw": "localhost/api/user/1/edit",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"user",
-								"6",
+								"1",
 								"edit"
 							],
 							"query": [
@@ -300,7 +288,7 @@
 					"response": []
 				},
 				{
-					"name": "update user by id",
+					"name": "update",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -310,15 +298,14 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"ahmed\",\n    \"email\": \"ahmedhh21@googleea.com\",\n    \"password\":\"1231322312\",\n    \"phone\": \"01002049971\",\n    \"status\":\"active\"\n}",
+							"raw": "{\n   \"name\": \"khaled\",\n    \"email\": \"kha2led@mail.com\",\n    \"password\":\"commandcommand\",\n    \"phone\": \"0123456789\",\n    \"type\":\"super_admin\",\n    \"status\":\"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -326,14 +313,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/user/6",
+							"raw": "localhost/api/user/14",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"user",
-								"6"
+								"14"
 							],
 							"query": [
 								{
@@ -349,10 +336,10 @@
 			]
 		},
 		{
-			"name": "Categories",
+			"name": "category",
 			"item": [
 				{
-					"name": "get all caetgories",
+					"name": "index",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -365,10 +352,9 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
@@ -402,7 +388,7 @@
 					"response": []
 				},
 				{
-					"name": "get category by id",
+					"name": "show",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -415,10 +401,9 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
@@ -431,14 +416,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/category/1",
+							"raw": "localhost/api/category/2",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"category",
-								"1"
+								"2"
 							],
 							"query": [
 								{
@@ -452,7 +437,7 @@
 					"response": []
 				},
 				{
-					"name": "create category form",
+					"name": "create",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -462,15 +447,14 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"ahmed\",\n    \"email\": \"ahmed21@googleea.com\",\n    \"password\":\"1231322312\",\n    \"phone\": \"01002049971\",\n    \"status\":\"active\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -486,20 +470,13 @@
 								"api",
 								"category",
 								"create"
-							],
-							"query": [
-								{
-									"key": "accept",
-									"value": "",
-									"disabled": true
-								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "store new category",
+					"name": "store",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -509,15 +486,14 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \n    \"title\":\"cat4\"\n}",
+							"raw": "{\n  \"title\":\"cat233\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -525,14 +501,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/category/new",
+							"raw": "localhost/api/category/store",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"category",
-								"new"
+								"store"
 							],
 							"query": [
 								{
@@ -546,7 +522,7 @@
 					"response": []
 				},
 				{
-					"name": "delete category by id",
+					"name": "destroy",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -556,10 +532,9 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
@@ -572,14 +547,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/category/19",
+							"raw": "localhost/api/category/7",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"category",
-								"19"
+								"7"
 							],
 							"query": [
 								{
@@ -593,7 +568,7 @@
 					"response": []
 				},
 				{
-					"name": "get category edit form by id",
+					"name": "edit",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -606,10 +581,9 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
@@ -622,13 +596,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/user/6/edit",
+							"raw": "localhost/api/category/6/edit",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
-								"user",
+								"category",
 								"6",
 								"edit"
 							],
@@ -644,7 +618,7 @@
 					"response": []
 				},
 				{
-					"name": "update category by id",
+					"name": "update",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -654,15 +628,14 @@
 								"type": "default"
 							},
 							{
-								"key": "",
-								"value": "",
-								"type": "default",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"title\": \"cat2\"\n}",
+							"raw": "{\n  \"title\":\"catup543date\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -670,14 +643,343 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/category/4",
+							"raw": "localhost/api/category/5",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"category",
-								"4"
+								"5"
+							],
+							"query": [
+								{
+									"key": "accept",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/task",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"task"
+							],
+							"query": [
+								{
+									"key": "accept",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/task/5",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"task",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/task/create",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"task",
+								"create"
+							],
+							"query": [
+								{
+									"key": "accept",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"testdsa\",\n    \"description\": \"\",\n    \"start_date\": \"2022-01-01\",\n    \"end_date\": \"2022-01-01\",\n    \"assign_at\": \"2022-01-01\",\n    \"status\": \"in_progress\",\n    \"priority\": \"high\",\n    \"creator_id\": 1,\n    \"assignee_id\": 2,\n    \"category_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/task/store",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"task",
+								"store"
+							],
+							"query": [
+								{
+									"key": "accept",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/task/41",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"task",
+								"41"
+							],
+							"query": [
+								{
+									"key": "accept",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/task/4/edit",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"task",
+								"4",
+								"edit"
+							],
+							"query": [
+								{
+									"key": "accept",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"testdsa\",\n    \"description\": \"\",\n    \"start_date\": \"2022-01-01\",\n    \"end_date\": \"2022-01-01\",\n    \"assign_at\": \"2022-01-01\",\n    \"status\": \"in_progress\",\n    \"priority\": \"high\",\n    \"creator_id\": 1,\n    \"assignee_id\": 2,\n    \"category_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/task/12",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"task",
+								"12"
 							],
 							"query": [
 								{
@@ -705,7 +1007,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"maudie.keeling@example.com\",\n    \"password\":\"password\"\n}",
+					"raw": "{\n    \"email\":\"admin@mail.com\",\n    \"password\":\"admin\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -48,7 +48,7 @@ class CategoryRepo implements CategoryRepoContract
      */
     public function edit(string $id)
     {
-        return CategoryModel::select('title')->where('id' , $id)->first(); 
+        return CategoryModel::select('id', 'title')->where('id' , $id)->first(); 
     }
 
 

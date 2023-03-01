@@ -38,7 +38,7 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {  
-        return response()->json(['message'=>'stored' , 'status'=>201 , 'record'=> $this->userProvider->store($request) , 'hashed'=>['password'=>'xxxxxxxx']]); 
+        return response()->json(['message'=>'stored' , 'status'=>201 , 'record'=> $this->userProvider->store($request) ]); 
     }
 
     /**
@@ -58,7 +58,12 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        return response()->json($this->userProvider->edit($id)); 
+        $found = $this->userProvider->edit($id);
+        if($found){
+            return response()->json(['message'=>'user found' , 'status'=>200  , 'user'=>$found]); 
+        }
+        return response()->json(['message'=>"user $id does not exist!" , 'status'=>200 , 'user'=>[]]); 
+        
     }
 
     /**

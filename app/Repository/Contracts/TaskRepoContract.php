@@ -10,7 +10,7 @@ interface TaskRepoContract{
     public function store(TaskStoreRequest $request); 
     public function show(string $id); 
     public function edit(string $id); 
-    public function update(Request $request, string $id); 
+    public function update(TaskStoreRequest $request, string $id); 
     public function destroy (string $id); 
 
 }

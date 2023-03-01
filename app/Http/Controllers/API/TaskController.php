@@ -4,9 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Task\TaskStoreRequest;
-use App\Models\TaskModel;
 use App\Repository\Contracts\TaskRepoContract;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class TaskController extends Controller
 {
@@ -32,7 +31,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return response()->json($this->taskProvider->create()); 
+        return response()->json(['message'=>'create form' , 'status'=>200 , 'form'=>$this->taskProvider->create()]); 
     }
 
     /**
@@ -49,7 +48,7 @@ class TaskController extends Controller
     public function show(string $id)
     {
         $found = $this->taskProvider->show($id); 
-        if($found){
+        if($found->count()){
             return response()->json(['message'=>'task found' , 'status'=>200 , 'task'=>$found]); 
         }; 
         return response()->json(['message'=>"task ID $id does not exist!" , 'status'=>204 , 'task'=>[]]); 
@@ -70,16 +69,23 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TaskStoreRequest $request, string $id)
     {
-        //
+        $found = $this->taskProvider->update($request , $id); 
+        if ($found){
+            return response()->json(['message'=>'updated successfuly' ,'status'=>202 ]);  
+        }
+        return response()->json(['message'=>"task ID $id does not exist!" ,'status'=>204 ]); 
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        if ($this->taskProvider->destroy($id) ){
+            return response()->json(['message'=>'deleted succsessfuly' , 'status'=>202]); 
+        }
+        return response()->json(['message'=>"task ID $id does not exist!" , 'status'=>204]); 
+
     }
 }

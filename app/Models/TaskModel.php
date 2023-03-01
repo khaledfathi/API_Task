@@ -17,6 +17,13 @@ class TaskModel extends Model
         'assign_at',
         'status',
         'priority', 
+        'category_id',
+        'assignee_id', 
+        'creator_id'
     ]; 
+    protected $hidden =[
+        'created_at', 
+        'updated_at'
+    ] ;
 
 }

@@ -64,7 +64,7 @@ class UserRepo implements UserRepoContract{
      */
     public function edit(string $id)
     {
-        return UserModel::where('id', $id)->select('name','email','password','phone','type','status')->first();
+        return UserModel::where('id', $id)->select('id' , 'name','email','password','phone','type','status')->first();
     }
 
     /**
@@ -76,7 +76,7 @@ class UserRepo implements UserRepoContract{
         if ($found){
             $request->validate([
                 'name'=>['required'],
-                'email'=>['required', new UniqueOnChange('users',$id)],
+                'email'=>['required', 'email',new UniqueOnChange('users',$id)],
                 'password'=>'required',
                 'phone'=>'numeric',
                 'type'=>['required', new Enum(Types::class)],
