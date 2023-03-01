@@ -1,30 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\API;
-
-use App\Enums\Status;
-use App\Enums\Types;
-use App\Http\Controllers\Controller;
+namespace App\Repository; 
+use App\Repository\Contracts\UserRepoContract; 
 use App\Http\Requests\User\UserStoreRequest;
-use App\Repository\Contracts\UserRepoContract;
 use App\Rules\UniqueOnChange;
 use Illuminate\Http\Request; 
 use App\Models\User as UserModel;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Enum;
 
-class User extends Controller
-{
-    private $userProvider ; 
-    public function __construct(UserRepoContract $userProvider){
-        $this->userProvider =$userProvider; 
-    }
-    /**
+class UserRepo implements UserRepoContract{
+     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return response()->json($this->userProvider->index()); 
+        $found = UserModel::all();
+        if ($found->count()){
+            return ['message'=>'users found', 'status'=>200 ,'user_count'=>$found->count(), 'users'=>$found]; 
+        }
+        return ['message'=>'there is no user registered yet!' , 'status'=>200]; 
     }
 
     /**
@@ -32,14 +27,14 @@ class User extends Controller
      */
     public function create()
     {
-        return response()->json(['message'=>'create form', 'status'=>200 ,'form'=>[
+        return ['message'=>'create form', 'status'=>200 ,'form'=>[
             'name',
             'phone',
             'password', 
             'email', 
             'type',
             'status'
-        ]]);  
+        ]];  
     }
 
     /**
@@ -55,7 +50,7 @@ class User extends Controller
             'type'=>$request->type,
             'status'=>$request->status
         ]);
-        return response()->json(['message'=>'stored', 'record_id'=>$record->id,'status'=>200]);  
+        return ['message'=>'stored', 'record_id'=>$record->id,'status'=>200];  
     }
 
     /**
@@ -65,9 +60,9 @@ class User extends Controller
     {
         $found =UserModel::where('id',$id)->get() ;
         if ($found->count()){
-            return response()->json(['message'=>"user found" , 'status'=>200 , 'user'=>$found ]); 
+            return ['message'=>"user found" , 'status'=>200 , 'user'=>$found ];
         }
-        return response()->json(['message'=>"user ID : '$id' does not exist!" , 'status'=>200 , 'user'=>$found ]); 
+        return ['message'=>"user ID : '$id' does not exist!" , 'status'=>200 , 'user'=>$found ]; 
     }
 
     /**
@@ -76,7 +71,7 @@ class User extends Controller
     public function edit(string $id)
     {
         $rowToEdit = UserModel::where('id', $id)->select('name','email','password','phone','type','status')->first();
-        return response()->json(['message'=>'user edit form', 'status'=>200 , 'form'=>$rowToEdit , 'hidden'=>['password'=>'xxxxxxxxxx'] ]);  
+        return ['message'=>'user edit form', 'status'=>200 , 'form'=>$rowToEdit , 'hidden'=>['password'=>'xxxxxxxxxx'] ];  
     }
 
     /**
@@ -102,9 +97,9 @@ class User extends Controller
                 'type'=>$request->type,
                 'status'=>$request->status
             ]);
-            return response()->json(['status'=>200, 'update'=>true , 'message'=> 'User has been updated successfully']); 
+            return ['status'=>200, 'update'=>true , 'message'=> 'User has been updated successfully']; 
         }
-        return response()->json(['status'=>200, 'update'=>false , 'message'=> 'User does not exist!']); 
+        return ['status'=>200, 'update'=>false , 'message'=> 'User does not exist!']; 
     }
 
     /**
@@ -115,8 +110,8 @@ class User extends Controller
         $found = UserModel::find($id);
         if($found){
             $found->delete();
-            return response()->json(["status"=>200 , "delete"=>true ,'message'=>'User has been deleted Successfully']); 
+            return ["status"=>200 , "delete"=>true ,'message'=>'User has been deleted Successfully']; 
         }
-        return response()->json(["status"=>200 , "delete"=>false,'message'=> 'User dose not exist!']); 
+        return ["status"=>200 , "delete"=>false,'message'=> 'User dose not exist!']; 
     }
-}
+} 
