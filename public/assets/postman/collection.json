@@ -10,6 +10,17 @@
 			"item": [
 				{
 					"name": "index",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -23,7 +34,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"value": "Bearer 20|q9axZs80SwL959q2u0RpbJaImq9vCcYaIdw1htz5",
 								"type": "default"
 							}
 						],
@@ -45,13 +56,6 @@
 								"api",
 								"user",
 								""
-							],
-							"query": [
-								{
-									"key": "accept",
-									"value": "",
-									"disabled": true
-								}
 							]
 						}
 					},
@@ -72,7 +76,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"value": "Bearer 9|cXWbNQXZQOfAIpBYEFB7X49gyCYxnDAFhzO3W4MI",
 								"type": "default"
 							}
 						],
@@ -157,13 +161,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"value": "Bearer 3|BBFjTWzO8F5Nl1l4H5rwUCU9ihfgXf2HAOn9RpOV",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"ahmed\",\n    \"email\": \"ahme25431d46341@googl42eea.com\",\n    \"password\":\"1231322312\",\n    \"phone\": \"01002049971\",\n    \"type\":\"super_admin\",\n    \"status\":\"active\"\n}",
+							"raw": "{\n   \"name\": \"user\",\n    \"email\": \"user@user.com\",\n    \"password\":\"password\",\n    \"phone\": \"01002049971\",\n    \"type\":\"user\",\n    \"status\":\"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -305,7 +309,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"khaled\",\n    \"email\": \"kha2led@mail.com\",\n    \"password\":\"commandcommand\",\n    \"phone\": \"0123456789\",\n    \"type\":\"super_admin\",\n    \"status\":\"active\"\n}",
+							"raw": "{\n   \"name\": \"test\",\n    \"email\": \"test@mail.com\",\n    \"password\":\"password\",\n    \"phone\": \"01002049971\",\n    \"type\":\"user\",\n    \"status\":\"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -313,14 +317,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/user/14",
+							"raw": "localhost/api/user/1",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"user",
-								"14"
+								"1"
 							],
 							"query": [
 								{
@@ -353,7 +357,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"value": "Bearer 4|5eHpQxsq3vgjSvd65ETkK2jRmrWjUFQCOmmN0FWs",
 								"type": "default"
 							}
 						],
@@ -487,13 +491,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"value": "Bearer 3|BBFjTWzO8F5Nl1l4H5rwUCU9ihfgXf2HAOn9RpOV",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"title\":\"cat233\"\n}",
+							"raw": "{\n  \"title\":\"cat43\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -731,7 +735,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"value": "Bearer 4|5eHpQxsq3vgjSvd65ETkK2jRmrWjUFQCOmmN0FWs",
 								"type": "default"
 							}
 						],
@@ -816,13 +820,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"value": "Bearer 5|6bBNCn43XeGWXlAebkvxNPAvmA338U1N8XZsr2VE",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"testdsa\",\n    \"description\": \"\",\n    \"start_date\": \"2022-01-01\",\n    \"end_date\": \"2022-01-01\",\n    \"assign_at\": \"2022-01-01\",\n    \"status\": \"in_progress\",\n    \"priority\": \"high\",\n    \"creator_id\": 1,\n    \"assignee_id\": 2,\n    \"category_id\": 2\n}",
+							"raw": "{\n    \"title\": \"testdsa\",\n    \"description\": \"\",\n    \"start_date\": \"2022-01-01\",\n    \"end_date\": \"2022-01-01\",\n    \"assign_at\": \"2022-01-01\",\n    \"status\": \"in_progress\",\n    \"creator_id\": 1,\n    \"assignee_id\": 2,\n    \"category_id\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -958,13 +962,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|XkCI0RK4mi6c2jMhydlNbwALe6QNBJ06iEH1idSH",
+								"value": "Bearer 7|RDXZMrkOQR1zqV7ohIjLWi0uwEKAoaH8KtH7KVS9",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"testdsa\",\n    \"description\": \"\",\n    \"start_date\": \"2022-01-01\",\n    \"end_date\": \"2022-01-01\",\n    \"assign_at\": \"2022-01-01\",\n    \"status\": \"in_progress\",\n    \"priority\": \"high\",\n    \"creator_id\": 1,\n    \"assignee_id\": 2,\n    \"category_id\": 2\n}",
+							"raw": "{\n    \"title\": \"testdsa\",\n    \"description\": \"\",\n    \"start_date\": \"2022-01-01\",\n    \"end_date\": \"2022-01-01\",\n    \"assign_at\": \"2022-01-01\",\n    \"status\": \"in_progress\",\n    \"priority\": \"high\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -972,14 +976,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/api/task/12",
+							"raw": "localhost/api/task/2",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
 								"task",
-								"12"
+								"2"
 							],
 							"query": [
 								{
@@ -1007,7 +1011,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"admin@mail.com\",\n    \"password\":\"admin\"\n}",
+					"raw": "{\n    \"email\":\"admin@mail.com\",\n    \"password\":\"admin\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"

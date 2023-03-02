@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Task\TaskStoreRequest;
+use App\Http\Requests\Task\TaskRequest;
+use App\Models\TaskModel;
 use App\Repository\Contracts\TaskRepoContract;
 use Illuminate\Http\Response;
 
@@ -37,7 +39,7 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TaskStoreRequest $request)
+    public function store(TaskRequest $request)
     {
         return response()->json(['message'=>'stored' ,'status'=>201 , 'record'=>$this->taskProvider->store($request)]); 
     }
@@ -69,8 +71,24 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(TaskStoreRequest $request, string $id)
+    public function update(TaskRequest $request, string $id)
     {
+        //validate the current user has permission to manage this task
+        $isAssignToUser = TaskModel::where('id', $id )->where('assignee_id' , auth()->user()->id)->count(); 
+        if ( $isAssignToUser){
+            return response()->json(['message'=>'This task is not assign to the current user!' ,'status'=>403 , 'is'=>$isAssignToUser]);  
+        }
+        //prevent normal users from set task as [rejected or success]
+        if (in_array($request->status,['rejected', 'success']) && auth()->user()->type == 'user'){
+
+            return response()->json(['message'=>'only super admin or admin users can set [\'rejected\' or \'success\']' ,'status'=>202 ]);  
+        }
+        //prevent change [creator_id , assignee_id , category_id]
+        // if ($request->has(['creator_id' , 'assignee_id' , 'category_id'])){
+        if ($request->has('assignee_id') || $request->has('creator_id') || $request->has('category_id')){
+            return response()->json(['message'=>'only super admin or admin can moidify [creator_id , assignee_id , category_id]!' ,'status'=>202 ]);  
+        }
+        //start updating if record exist
         $found = $this->taskProvider->update($request , $id); 
         if ($found){
             return response()->json(['message'=>'updated successfuly' ,'status'=>202 ]);  

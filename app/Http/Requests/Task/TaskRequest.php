@@ -6,9 +6,10 @@ use App\Enums\Priority;
 use App\Enums\TaskStatus;
 use App\Rules\ForeignKey;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum; 
 
-class TaskStoreRequest extends FormRequest
+class TaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,9 +34,9 @@ class TaskStoreRequest extends FormRequest
             'assign_at'=>'required|date',
             'status'=>['required' , new Enum(TaskStatus::class)],
             'priority'=>['required', new Enum(Priority::class)],
-            'category_id'=>['required' , new ForeignKey('categories')],
-            'creator_id'=>['required' , new ForeignKey('users')],
-            'assignee_id'=>['required', new ForeignKey('users')],
+            'category_id'=>[Rule::requiredIf(fn()=>$this->getMethod()!="PUT") , new ForeignKey('categories')],
+            'creator_id'=>[Rule::requiredIf(fn()=>$this->getMethod()!="PUT") , new ForeignKey('users')],
+            'assignee_id'=>[Rule::requiredIf(fn()=>$this->getMethod()!="PUT") , new ForeignKey('users')],
         ]; 
 
     }

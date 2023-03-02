@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             "email"=> "admin@mail.com",
             "password"=> Hash::make("admin"),
             "phone"=> "01002049971",
+            "type"=>"super_admin", 
             "status"=>"active"
 
         ]);

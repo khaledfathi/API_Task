@@ -24,8 +24,8 @@ use Illuminate\Support\Facades\Route;
 route::post('login' , [UserAuthController::class , 'Login']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    //users
-    route::group(['prefix'=>'user'], function (){
+    //users [authorized for <super admin | admin> ]
+    route::group(['prefix'=>'user' , 'middleware'=>'auth.superadmin'], function (){
         route::get('/',[UserController::class , 'index']); 
         route::get('{id}',[UserController::class , 'show']); 
         route::post('create',[UserController::class , 'create']); 
@@ -34,8 +34,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
         route::delete('{id}',[UserController::class , 'destroy']); 
         route::put('{id}',[UserController::class , 'update']); 
     }); 
-    //categories
-    route::group(['prefix'=>'category'], function (){
+    //categories [authorized for <admin> ]
+    route::group(['prefix'=>'category' , 'middleware'=>'auth.admin'], function (){
         route::get('/',[CategoryController::class , 'index']); 
         route::get('{id}',[CategoryController::class , 'show']); 
         route::post('create',[CategoryController::class , 'create']); 
@@ -44,15 +44,15 @@ Route::middleware(['auth:sanctum'])->group(function () {
         route::delete('{id}',[CategoryController::class , 'destroy']); 
         route::put('{id}',[CategoryController::class , 'update']); 
     });
-    //tasks
-    route::group(['prefix'=>'task'], function (){
-        route::get('/',[TaskController::class , 'index']); 
-        route::get('{id}',[TaskController::class , 'show']); 
-        route::post('create',[TaskController::class , 'create']); 
-        route::get('{id}/edit',[TaskController::class , 'edit']); 
-        route::post('store',[TaskController::class , 'store']); 
-        route::delete('{id}',[TaskController::class , 'destroy']); 
-        route::put('{id}',[TaskController::class , 'update']); 
+    //tasks [authorized for specific <user>]
+    route::group(['prefix'=>'task' ], function (){
+        route::get('/',[TaskController::class , 'index'])->middleware('auth.admin'); 
+        route::get('{id}',[TaskController::class , 'show'])->middleware('auth.admin'); 
+        route::post('create',[TaskController::class , 'create'])->middleware('auth.admin'); 
+        route::get('{id}/edit',[TaskController::class , 'edit'])->middleware('auth.admin'); 
+        route::post('store',[TaskController::class , 'store'])->middleware('auth.admin'); 
+        route::delete('{id}',[TaskController::class , 'destroy'])->middleware('auth.admin'); 
+        route::put('{id}',[TaskController::class , 'update'])->middleware('auth.user'); 
     }); 
 });
 

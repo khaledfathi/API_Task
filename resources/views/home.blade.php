@@ -111,7 +111,7 @@
                         <td>{{ $row->description }}</td>
                         <td>{{ $row->start_date }}</td>
                         <td>{{ $row->end_date }}</td>
-                        <td>{{ $row->assigne_at }}</td>
+                        <td>{{ $row->assign_at }}</td>
                         <td>{{ $row->status }}</td>
                         <td>{{ $row->priority }}</td>
                     </tr>
