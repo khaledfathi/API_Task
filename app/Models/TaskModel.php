@@ -11,7 +11,7 @@ class TaskModel extends Model
     public $table = 'tasks'; 
     protected  $fillable=[
         'title', 
-        'desctiption', 
+        'description', 
         'start_date', 
         'end_date', 
         'assign_at',

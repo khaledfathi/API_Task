@@ -95,6 +95,9 @@ class TaskRepo implements TaskRepoContract
                 'assign_at' => $request->assign_at,
                 'status' => $request->status,
                 'priority' => $request->priority,
+                'category_id' => $request->category_id,
+                'creator_id' => $request->creator_id,
+                'assignee_id' => $request->assignee_id,
             ]);
             return true;
         }

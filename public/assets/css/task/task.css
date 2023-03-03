@@ -1,0 +1,31 @@
+.active_tasks{
+    background-color: blue;
+    color: white; 
+}
+.container{
+    width: 90%;    
+    padding: 20px;
+}
+.category_control_buttons{
+    direction: rtl;
+    margin-bottom: 40px;
+}
+.category_control_buttons a {
+    text-decoration: none ;
+    color: white;
+    background: blue; 
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0px 10px 30px;
+}
+
+.task_div table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+.task_div table thead th ,
+.task_div table tbody tr td {
+    border: 1px solid lightblue; 
+    padding : 5px 10px ;
+}

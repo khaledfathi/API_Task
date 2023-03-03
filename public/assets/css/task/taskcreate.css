@@ -1,0 +1,39 @@
+.container{
+    width : 60% ; 
+    margin : 0px auto; 
+    padding : 20px ; 
+    
+}
+.container form * {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    background-color: transparent;
+}
+select{
+    height: 30px;
+}
+select , input[type="text"] , input[type="password"] , input[type="date"] , textarea{
+    border: 1px solid lightblue;
+    box-shadow: 0px 0px 5px 2px gray;
+    margin: 10px;
+    height: 30px;
+}
+textarea{
+    height: 150px;
+}
+input[type="submit"]{
+    width:100px ;
+    height: 40px;
+    border : none; 
+    background-color: blue;
+    color: white;
+    margin: 0px auto ;
+}
+.error{
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}

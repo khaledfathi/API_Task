@@ -1,0 +1,37 @@
+.container{
+    width : 60% ; 
+    margin : 0px auto; 
+    padding : 20px ; 
+    
+}
+form :not(form input[type="submit"]) {
+    display:block;
+    width: 100% ;
+    margin: 20px 0px;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+}
+form input[type="text"] {
+    border: 1px solid lightblue;
+    box-shadow: 0px 0px 10px 1px gray;
+}
+form input[type="submit"] {
+    display: block;
+    width : 150px ;
+    height: 40px;
+    border : none; 
+    color : inherit;
+    background-color: blue;
+    color: white; 
+    margin: 0px auto ;
+    border-radius: 5px;
+}
+
+.error{
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}

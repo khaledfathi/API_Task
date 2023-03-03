@@ -77,19 +77,23 @@ class UserRepo implements UserRepoContract{
             $request->validate([
                 'name'=>['required'],
                 'email'=>['required', 'email',new UniqueOnChange('users',$id)],
-                'password'=>'required',
                 'phone'=>'numeric',
                 'type'=>['required', new Enum(Types::class)],
                 'status'=>['required', new Enum(Status::class)],
             ]);
-            $found->update([
+            $data = [
                 'name'=>$request->name,
                 'phone'=>$request->phone,
-                'password'=>Hash::make($request->password),
                 'email'=>$request->email,
                 'type'=>$request->type,
                 'status'=>$request->status
-            ]);
+            ]; 
+            if (!empty($request->password)){
+                $request->validate(['password'=>'confirmed']); 
+                $data['password'] = Hash::make($request->password); 
+            }
+
+            $found->update($data);
             return true; 
         }
         return false;  
