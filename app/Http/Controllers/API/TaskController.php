@@ -75,7 +75,7 @@ class TaskController extends Controller
     {
         //validate the current user has permission to manage this task
         $isAssignToUser = TaskModel::where('id', $id )->where('assignee_id' , auth()->user()->id)->count(); 
-        if ( $isAssignToUser){
+        if ( $isAssignToUser && auth()->user()->type == 'user'){
             return response()->json(['message'=>'This task is not assign to the current user!' ,'status'=>403 , 'is'=>$isAssignToUser]);  
         }
         //prevent normal users from set task as [rejected or success]
@@ -84,8 +84,7 @@ class TaskController extends Controller
             return response()->json(['message'=>'only super admin or admin users can set [\'rejected\' or \'success\']' ,'status'=>202 ]);  
         }
         //prevent change [creator_id , assignee_id , category_id]
-        // if ($request->has(['creator_id' , 'assignee_id' , 'category_id'])){
-        if ($request->has('assignee_id') || $request->has('creator_id') || $request->has('category_id')){
+        if ( ($request->has('assignee_id') || $request->has('creator_id') || $request->has('category_id')) && auth()->user()->type == 'user' ){
             return response()->json(['message'=>'only super admin or admin can moidify [creator_id , assignee_id , category_id]!' ,'status'=>202 ]);  
         }
         //start updating if record exist
