@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="category_control_buttons">
-            <a href="http://localhost/user/create">New User</a>
+            <a href="{{url('user/create')}}">New User</a>
         </div>
         @if (count($records))
             <div class="user_div">

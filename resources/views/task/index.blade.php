@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="category_control_buttons">
-            <a href="http://localhost/task/create">New Task</a>
+            <a href="{{url('task/create')}}">New Task</a>
         </div>
         <div class="table_div">
 
