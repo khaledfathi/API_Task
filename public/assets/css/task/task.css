@@ -19,13 +19,29 @@
     margin: 0px 10px 30px;
 }
 
+.task_div {
+    overflow: scroll;
+    margin-bottom: 100px;
+}
 .task_div table {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
+    position: relative;
+}
+.task_div table thead th {
+    background-color: lightblue;
+    position: sticky;
+    top:0px
 }
 .task_div table thead th ,
 .task_div table tbody tr td {
     border: 1px solid lightblue; 
     padding : 5px 10px ;
+}
+
+@media only screen and (max-width:960px){
+    .task_div{
+        max-height: 300px; 
+    }
 }

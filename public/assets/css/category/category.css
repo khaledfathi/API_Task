@@ -3,7 +3,7 @@
     color: white; 
 }
 .container{
-    width: 60%;
+    width: 80%;
     margin: 0px auto ;
     padding: 20px;
 }
@@ -19,14 +19,28 @@
     border-radius: 5px;
     margin: 0px 10px 30px;
 }
-
+.category_div{
+    overflow: scroll scroll;
+    margin-bottom: 100px;
+}
 .category_div table {
     border-collapse: collapse;
+    min-width: 400px;
     width: 100%;
     text-align: center;
+}
+.category_div table thead th{
+    background-color: lightblue;
+    position: sticky;
+    top: 0px;
 }
 .category_div table thead th ,
 .category_div table tbody tr td {
     border: 1px solid lightblue; 
     padding : 5px 10px ;
+}
+@media only screen and (max-width:960px){
+    .category_div{
+        max-height: 300px;
+    }
 }

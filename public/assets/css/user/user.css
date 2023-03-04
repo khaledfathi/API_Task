@@ -3,7 +3,6 @@
     color: white; 
 }
 .container{
-    width: 60%;
     margin: 0px auto ;
     padding: 20px;
 }
@@ -20,13 +19,30 @@
     margin: 0px 10px 30px;
 }
 
+.user_div{
+    overflow: scroll;
+    margin-bottom: 100px;
+}
 .user_div table {
     border-collapse: collapse;
-    width: 100%;
     text-align: center;
+    width: 100%;
+    margin: 0px auto ;
+    position: relative;
+}
+.user_div table thead th{
+    background-color: lightblue;
+    position: sticky;
+    top:0px; 
 }
 .user_div table thead th ,
 .user_div table tbody tr td {
     border: 1px solid lightblue; 
     padding : 5px 10px ;
+}
+
+@media only screen and (max-width:960px){
+    .user_div{
+        max-height: 300px; 
+    }
 }
