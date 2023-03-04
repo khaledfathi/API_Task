@@ -20,10 +20,10 @@
         }
 
         .table_block {
-
-            width: 1200px;
+            width: 100%;
             height: 200px;
             overflow: scroll scroll;
+            margin-bottom: 50px;
         }
     </style>
 </head>
